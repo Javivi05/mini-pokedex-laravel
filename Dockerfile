@@ -23,4 +23,9 @@ RUN sed -i 's|/var/www/html|${APACHE_DOCUMENT_ROOT}|g' /etc/apache2/sites-availa
 
 RUN a2enmod rewrite
 
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 EXPOSE 80
+
+CMD ["/start.sh"]
